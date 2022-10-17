@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-10-17 Mon 17:02 -->
+<!-- 2022-10-17 Mon 17:13 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>CSCI 1437 Programming Fundamentals II Assignment 1</title>
@@ -251,66 +251,56 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgabec98d">Due Date</a></li>
-<li><a href="#org0dd2ffa">Team Signup</a></li>
-<li><a href="#org9844354">Overview</a></li>
-<li><a href="#org92e9292">Tasks</a>
+<li><a href="#org714b930">Due Date</a></li>
+<li><a href="#org1ac10e0">Overview</a></li>
+<li><a href="#org9052c10">Tasks</a>
 <ul>
-<li><a href="#org5dfda48">Step 1: Implement Book</a></li>
-<li><a href="#org042ca5a">Step 2: Implement Library</a>
+<li><a href="#org7a1f845">Step 1: Implement Book</a></li>
+<li><a href="#org0c6114e">Step 2: Implement Library</a>
 <ul>
-<li><a href="#orge093669">Notes</a></li>
+<li><a href="#orgbf00058">Notes</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org17aea23">Submission Instructions</a></li>
-<li><a href="#orgafba14c">Book.java</a></li>
-<li><a href="#orge46b00f">Library.java</a></li>
+<li><a href="#orgd5b087a">Submission Instructions</a></li>
+<li><a href="#org1cae030">Book.java</a></li>
+<li><a href="#org86dc538">Library.java</a></li>
 </ul>
 </div>
 </div>
 
 
 
-<div id="outline-container-orgabec98d" class="outline-2">
-<h2 id="orgabec98d">Due Date</h2>
-<div class="outline-text-2" id="text-orgabec98d">
+<div id="outline-container-org714b930" class="outline-2">
+<h2 id="org714b930">Due Date</h2>
+<div class="outline-text-2" id="text-org714b930">
 <p>
 This assignment is due on <b>Oct 30th 11:59 pm</b>.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org0dd2ffa" class="outline-2">
-<h2 id="org0dd2ffa">Team Signup</h2>
-<div class="outline-text-2" id="text-org0dd2ffa">
-<p>
-Please sign up your team at <a href="https://docs.google.com/spreadsheets/d/1LG0sMRjkKGp8gUYcNaD7kC2EJAULiLEWiR2jbndu2No/edit?usp=sharing">here</a>.
-</p>
-</div>
-</div>
-
-<div id="outline-container-org9844354" class="outline-2">
-<h2 id="org9844354">Overview</h2>
-<div class="outline-text-2" id="text-org9844354">
+<div id="outline-container-org1ac10e0" class="outline-2">
+<h2 id="org1ac10e0">Overview</h2>
+<div class="outline-text-2" id="text-org1ac10e0">
 <p>
 The libraries of SmallTownX need a new electronic rental system, and it is up to you to build it. SmallTownX has two libraries. Each library offers many books to rent. Customers can print the list of available books and borrow and return books.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org92e9292" class="outline-2">
-<h2 id="org92e9292">Tasks</h2>
-<div class="outline-text-2" id="text-org92e9292">
+<div id="outline-container-org9052c10" class="outline-2">
+<h2 id="org9052c10">Tasks</h2>
+<div class="outline-text-2" id="text-org9052c10">
 <p>
 You're provided two classes, <code>Book</code> and <code>Library</code>, that provide the functionality for the book database. You must implement the missing methods to make these classes work.
 </p>
 </div>
 
-<div id="outline-container-org5dfda48" class="outline-3">
-<h3 id="org5dfda48">Step 1: Implement Book</h3>
-<div class="outline-text-3" id="text-org5dfda48">
+<div id="outline-container-org7a1f845" class="outline-3">
+<h3 id="org7a1f845">Step 1: Implement Book</h3>
+<div class="outline-text-3" id="text-org7a1f845">
 <p>
 First, we need a class to model books. Start by creating a class called <code>Book</code>. Copy and paste the skeleton below. This class defines methods to get the title of a book, find out if it is available, borrow the book, and return the book. However, the skeleton that we provide is missing the implementations of the methods. Fill in the body of the methods with the appropriate code. The <code>main</code> method tests the methods. When you run the program, the output should be:
 </p>
@@ -329,9 +319,9 @@ Rented? (should be false): false
 </div>
 
 
-<div id="outline-container-org042ca5a" class="outline-3">
-<h3 id="org042ca5a">Step 2: Implement Library</h3>
-<div class="outline-text-3" id="text-org042ca5a">
+<div id="outline-container-org0c6114e" class="outline-3">
+<h3 id="org0c6114e">Step 2: Implement Library</h3>
+<div class="outline-text-3" id="text-org0c6114e">
 <p>
 Next, we need to build a class that will represent each library and manage a collection of books. All libraries have the same hours: 9 AM to 5 PM daily. However, they have different addresses and book collections (i.e., arrays of <code>Book</code> objects).
 </p>
@@ -341,9 +331,9 @@ Create a class called <code>Library</code>. Copy and paste the skeleton below. W
 </p>
 </div>
 
-<div id="outline-container-orge093669" class="outline-4">
-<h4 id="orge093669">Notes</h4>
-<div class="outline-text-4" id="text-orge093669">
+<div id="outline-container-orgbf00058" class="outline-4">
+<h4 id="orgbf00058">Notes</h4>
+<div class="outline-text-4" id="text-orgbf00058">
 <ul class="org-ul">
 <li>Some methods will need to be <i>static</i> methods, and some need to be <i>instance</i> methods.</li>
 <li>Be careful when comparing Strings objects. Use <code>string1.equals(string2)</code> for comparing the contents of <code>string1</code> and <code>string2</code>.</li>
@@ -389,9 +379,9 @@ The Lord of the Rings
 </div>
 </div>
 
-<div id="outline-container-org17aea23" class="outline-2">
-<h2 id="org17aea23">Submission Instructions</h2>
-<div class="outline-text-2" id="text-org17aea23">
+<div id="outline-container-orgd5b087a" class="outline-2">
+<h2 id="orgd5b087a">Submission Instructions</h2>
+<div class="outline-text-2" id="text-orgd5b087a">
 <p>
 Submit both files (<code>Book.java</code> and <code>Library.java</code>) via Blackboard.
 </p>
@@ -402,9 +392,9 @@ Good luck!
 </div>
 </div>
 
-<div id="outline-container-orgafba14c" class="outline-2">
-<h2 id="orgafba14c">Book.java</h2>
-<div class="outline-text-2" id="text-orgafba14c">
+<div id="outline-container-org1cae030" class="outline-2">
+<h2 id="org1cae030">Book.java</h2>
+<div class="outline-text-2" id="text-org1cae030">
 <div class="org-src-container">
 <pre class="src src-java">public class Book {
    String title;
@@ -451,9 +441,9 @@ Good luck!
 </div>
 </div>
 
-<div id="outline-container-orge46b00f" class="outline-2">
-<h2 id="orge46b00f">Library.java</h2>
-<div class="outline-text-2" id="text-orge46b00f">
+<div id="outline-container-org86dc538" class="outline-2">
+<h2 id="org86dc538">Library.java</h2>
+<div class="outline-text-2" id="text-org86dc538">
 <div class="org-src-container">
 <pre class="src src-java">public class Library {
    // Add the missing implementation to this class
