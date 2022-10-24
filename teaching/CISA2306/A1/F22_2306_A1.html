@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-10-23 Sun 22:56 -->
+<!-- 2022-10-23 Sun 23:13 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>CISA 2306 Assignment 1</title>
@@ -219,39 +219,39 @@ $(function() {    $('.note').before("<p class='admonition-title note'>Note</p>")
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org1adf24c">Due Date</a></li>
-<li><a href="#orgbc976ee">Team Signup</a></li>
-<li><a href="#org0792353">Overview</a></li>
-<li><a href="#org88ee408">Wireshark Introduction</a></li>
-<li><a href="#org2477a04">Getting Wireshark</a></li>
-<li><a href="#orga4bfc28">Running Wireshark</a></li>
-<li><a href="#org1b920a2">Taking Wireshark for a Test Run</a></li>
-<li><a href="#org540e115">What to Submit</a></li>
+<li><a href="#org7b180ab">Due Date</a></li>
+<li><a href="#org141c778">Team Signup</a></li>
+<li><a href="#org636f538">Overview</a></li>
+<li><a href="#org990b8b2">Wireshark Introduction</a></li>
+<li><a href="#orgb41d9dd">Getting Wireshark</a></li>
+<li><a href="#orgb3482aa">Running Wireshark</a></li>
+<li><a href="#org6d11f2d">Taking Wireshark for a Test Run</a></li>
+<li><a href="#org56d8861">What to Submit</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org1adf24c" class="outline-2">
-<h2 id="org1adf24c">Due Date</h2>
-<div class="outline-text-2" id="text-org1adf24c">
+<div id="outline-container-org7b180ab" class="outline-2">
+<h2 id="org7b180ab">Due Date</h2>
+<div class="outline-text-2" id="text-org7b180ab">
 <p>
 This assignment is due on <b>Nov 13th at 11:59 pm</b>.
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgbc976ee" class="outline-2">
-<h2 id="orgbc976ee">Team Signup</h2>
-<div class="outline-text-2" id="text-orgbc976ee">
+<div id="outline-container-org141c778" class="outline-2">
+<h2 id="org141c778">Team Signup</h2>
+<div class="outline-text-2" id="text-org141c778">
 <p>
 <b>Please sign up for your team via the link in BlackBoard.</b>
 </p>
 </div>
 </div>
 
-<div id="outline-container-org0792353" class="outline-2">
-<h2 id="org0792353">Overview</h2>
-<div class="outline-text-2" id="text-org0792353">
+<div id="outline-container-org636f538" class="outline-2">
+<h2 id="org636f538">Overview</h2>
+<div class="outline-text-2" id="text-org636f538">
 <p>
 One’s understanding of network protocols can often be greatly deepened by “seeing protocols in action” and by “playing around with protocols” – observing the sequence of messages exchanged between two protocol entities, delving down into the details of protocol operation, and causing protocols to perform certain actions and then observing these actions and their consequences. This can be done in simulated scenarios or in a “real” network environment such as the Internet. In the two-part Wireshark assignment you’ll be doing in this course, you’ll be running various network applications in different scenarios using your own computer. You’ll observe the network protocols in your computer “in action,” interacting and exchanging messages with protocol entities executing elsewhere in the Internet. Thus, you and your computer will be an integral part of these “live” labs. You’ll observe, and you’ll learn, by doing.
 </p>
@@ -262,9 +262,9 @@ In this first part of the Wireshark assignment, you’ll get acquainted with Wir
 </div>
 </div>
 
-<div id="outline-container-org88ee408" class="outline-2">
-<h2 id="org88ee408">Wireshark Introduction</h2>
-<div class="outline-text-2" id="text-org88ee408">
+<div id="outline-container-org990b8b2" class="outline-2">
+<h2 id="org990b8b2">Wireshark Introduction</h2>
+<div class="outline-text-2" id="text-org990b8b2">
 <p>
 The basic tool for observing the messages exchanged between executing protocol entities is called a packet sniffer.  As the name suggests, a packet sniffer captures (“sniffs”) messages being sent/received from/by your computer; it will also typically store and/or display the contents of the various protocol fields in these captured messages. A packet sniffer itself is passive. It observes messages being sent and received by applications and protocols running on your computer, but never sends packets itself. Similarly, received packets are never explicitly addressed to the packet sniffer.  Instead, a packet sniffer receives a copy of packets that are sent/received from/by application and protocols executing on your machine.
 </p>
@@ -274,8 +274,8 @@ Figure 1 shows the structure of a packet sniffer. At the right of Figure 1 are t
 </p>
 
 
-<div id="org42e8f21" class="figure">
-<p><img src="file:///F22_2306_A1_Fig_1.png" alt="F22_2306_A1_Fig_1.png" />
+<div id="org9569bda" class="figure">
+<p><img src="./Figure_1.png" alt="Figure_1.png" />
 </p>
 </div>
 
@@ -289,9 +289,9 @@ We will be using the Wireshark packet sniffer <a href="http://www.wireshark.org/
 </div>
 </div>
 
-<div id="outline-container-org2477a04" class="outline-2">
-<h2 id="org2477a04">Getting Wireshark</h2>
-<div class="outline-text-2" id="text-org2477a04">
+<div id="outline-container-orgb41d9dd" class="outline-2">
+<h2 id="orgb41d9dd">Getting Wireshark</h2>
+<div class="outline-text-2" id="text-orgb41d9dd">
 <p>
 In order to run Wireshark, you will need to have access to a computer that supports both Wireshark and the libpcap or WinPCap packet capture library. The libpcap software will be installed for you, if it is not installed within your operating system, when you install Wireshark. See <a href="http://www.wireshark.org/download.html">http://www.wireshark.org/download.html</a> for a list of supported operating systems and download sites
 </p>
@@ -311,16 +311,16 @@ The Wireshark FAQ has a number of helpful hints and interesting tidbits of infor
 </div>
 </div>
 
-<div id="outline-container-orga4bfc28" class="outline-2">
-<h2 id="orga4bfc28">Running Wireshark</h2>
-<div class="outline-text-2" id="text-orga4bfc28">
+<div id="outline-container-orgb3482aa" class="outline-2">
+<h2 id="orgb3482aa">Running Wireshark</h2>
+<div class="outline-text-2" id="text-orgb3482aa">
 <p>
 When you run the Wireshark program, you’ll get a startup screen that looks something like the screen below.  Different versions of Wireshark will have different startup screens – so don’t panic if yours doesn’t look exactly like the screen below!  The Wireshark documentation states “As Wireshark runs on many different platforms with many different window managers, different styles applied and there are different versions of the underlying GUI toolkit used, your screen might look different from the provided screenshots. But as there are no real differences in functionality these screenshots should still be well understandable.”  Well said.
 </p>
 
 
-<div id="org3e741b9" class="figure">
-<p><img src="file:///F22_2306_A1_Fig_2.png" alt="F22_2306_A1_Fig_2.png" />
+<div id="org1f9324f" class="figure">
+<p><img src="./Figure_2.png" alt="Figure_2.png" />
 </p>
 <p><span class="figure-number">Figure 1: </span>Initial Wireshark Screen</p>
 </div>
@@ -334,7 +334,7 @@ Let’s take Wireshark out for a spin! If you click on one of these interfaces t
 </p>
 
 <p>
-<img src="file:///F22_2306_A1_Fig_3.png" alt="F22_2306_A1_Fig_3.png" />
+<img src="./Figure_3.png" alt="Figure_3.png" />
 This looks more interesting! The Wireshark interface has five major components:
 </p>
 <ul class="org-ul">
@@ -347,9 +347,9 @@ This looks more interesting! The Wireshark interface has five major components:
 </div>
 </div>
 
-<div id="outline-container-org1b920a2" class="outline-2">
-<h2 id="org1b920a2">Taking Wireshark for a Test Run</h2>
-<div class="outline-text-2" id="text-org1b920a2">
+<div id="outline-container-org6d11f2d" class="outline-2">
+<h2 id="org6d11f2d">Taking Wireshark for a Test Run</h2>
+<div class="outline-text-2" id="text-org6d11f2d">
 <p>
 The best way to learn about any new piece of software is to try it out!  We’ll assume that your computer is connected to the Internet via a wired Ethernet interface. Indeed, I recommend that you do this first lab on a computer that has a wired Ethernet connection, rather than just a wireless connection. Do the following
 </p>
@@ -361,8 +361,8 @@ To begin packet capture, select the Capture pull down menu and select Interfaces
 </p>
 
 
-<div id="orga5ee875" class="figure">
-<p><img src="file:///F22_2306_A1_Fig_4.png" alt="F22_2306_A1_Fig_4.png" />
+<div id="org3e40826" class="figure">
+<p><img src="./Figure_4.png" alt="Figure_4.png" />
 </p>
 <p><span class="figure-number">Figure 2: </span>Wireshark Capture Interface Window</p>
 </div></li>
@@ -376,8 +376,8 @@ To begin packet capture, select the Capture pull down menu and select Interfaces
 Find the HTTP GET message that was sent from your computer to the gaia.cs.umass.edu HTTP server. (Look for an HTTP GET message in the “listing of captured packets” portion of the Wireshark window (see Figure 3) that shows “GET” followed by the gaia.cs.umass.edu URL that you entered.  When you select the HTTP GET message, the Ethernet frame, IP datagram, TCP segment, and HTTP message header information will be displayed in the packet-header window1. By clicking on ‘+’ and ‘-‘ right-pointing and down-pointing arrowheads to the left side of the packet details window, minimize the amount of Frame, Ethernet, Internet Protocol, and Transmission Control Protocol information displayed.  Maximize the amount information displayed about the HTTP protocol.  Your Wireshark display should now look roughly as shown in Figure 5. (Note, in particular, the minimized amount of protocol information for all protocols except HTTP, and the maximized amount of protocol information for HTTP in the packet-header window).
 </p>
 
-<div id="org56a16a6" class="figure">
-<p><img src="file:///F22_2306_A1_Fig_5.png" alt="F22_2306_A1_Fig_5.png" />
+<div id="org7a1f484" class="figure">
+<p><img src="./Figure_5.png" alt="Figure_5.png" />
 </p>
 <p><span class="figure-number">Figure 3: </span>Wireshark window after step 9</p>
 </div></li>
@@ -390,9 +390,9 @@ Congratulations! You’ve now completed the test run of Wireshark.
 </div>
 </div>
 
-<div id="outline-container-org540e115" class="outline-2">
-<h2 id="org540e115">What to Submit</h2>
-<div class="outline-text-2" id="text-org540e115">
+<div id="outline-container-org56d8861" class="outline-2">
+<h2 id="org56d8861">What to Submit</h2>
+<div class="outline-text-2" id="text-org56d8861">
 <p>
 The goal of this assignment was primarily to introduce you to Wireshark. The following questions will demonstrate that you’ve been able to get Wireshark up and running, and have explored some of its capabilities. Answer the following questions, based on your Wireshark experimentation:
 </p>
