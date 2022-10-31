@@ -1,0 +1,788 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2022-10-31 Mon 12:04 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Lab 7 - Chapter 21 Dictionary (Oct 31th 🎃)</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Zechun Cao" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://gongzhitaao.org/orgcss/org.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/highlight.min.js"></script>
+<script>var hlf=function(){Array.prototype.forEach.call(document.querySelectorAll("pre.src"),function(t){var e;e=t.getAttribute("class"),e=e.replace(/src-(\w+)/,"src-$1 $1"),console.log(e),t.setAttribute("class",e),hljs.highlightBlock(t)})};addEventListener("DOMContentLoaded",hlf);</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/styles/googlecode.min.css" />
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Lab 7 - Chapter 21 Dictionary (Oct 31th 🎃)</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org272cf48">Overview</a></li>
+<li><a href="#org108fb44">Tasks</a>
+<ul>
+<li><a href="#org00675f6">Task 1. Analyze <code>ArrayDictionary.java</code> and Run <code>Lab_7.java</code></a></li>
+<li><a href="#org89c5c22">Task 2. Implement Method <code>union</code> in <code>ArraryDictionary.java</code></a></li>
+<li><a href="#orgc6d6716">Task 3. Implement Method <code>intersection</code> in <code>ArraryDictionary.java</code></a></li>
+<li><a href="#orgf79f779">Task 4. Testing</a></li>
+</ul>
+</li>
+<li><a href="#org04bf6ea">Resources</a></li>
+<li><a href="#org1eca648">Submission</a></li>
+<li><a href="#org2e817c5">Appendix</a>
+<ul>
+<li><a href="#orgd1a9bd4"><code>ArrayDictionary.java</code></a></li>
+<li><a href="#org0cb357f"><code>Lab_7.java</code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org272cf48" class="outline-2">
+<h2 id="org272cf48">Overview</h2>
+<div class="outline-text-2" id="text-org272cf48">
+<p>
+A dictionary is a data structure that allows us to associate keys with values. (For example, in English, a dictionary associates words with definitions. For another, a phone book associates names with phone numbers.) Consider adding operations to the ADT dictionary to form the <code>union</code> and <code>intersection</code> of two given dictionaries. Each operation <b>returns a new dictionary</b>. We make two assumptions in this lab:
+</p>
+
+<ol class="org-ol">
+<li>Within each given dictionary, search keys <b>are not repeated</b>.</li>
+<li>However, an entry in one dictionary could have the same search key as an entry in the second dictionary.</li>
+</ol>
+
+<p>
+Propose and discuss ways to specify these two operations for this case.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org108fb44" class="outline-2">
+<h2 id="org108fb44">Tasks</h2>
+<div class="outline-text-2" id="text-org108fb44">
+</div>
+<div id="outline-container-org00675f6" class="outline-3">
+<h3 id="org00675f6">Task 1. Analyze <code>ArrayDictionary.java</code> and Run <code>Lab_7.java</code></h3>
+<div class="outline-text-3" id="text-org00675f6">
+<ol class="org-ol">
+<li>Pay attention to the <code>display</code> method in <code>Lab_7.java</code>. How do we use iterators to traverse each key/value in the dictionary?</li>
+<li>What entries are contained in the <code>nameList</code> before testing the <code>clear</code> method?</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org89c5c22" class="outline-3">
+<h3 id="org89c5c22">Task 2. Implement Method <code>union</code> in <code>ArraryDictionary.java</code></h3>
+<div class="outline-text-3" id="text-org89c5c22">
+<p>
+The <code>union</code> should combine the entries in both dictionaries into a third dictionary. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc6d6716" class="outline-3">
+<h3 id="orgc6d6716">Task 3. Implement Method <code>intersection</code> in <code>ArraryDictionary.java</code></h3>
+<div class="outline-text-3" id="text-orgc6d6716">
+<p>
+The <code>intersection</code> should be a dictionary of the entries common to both dictionaries.
+</p>
+</div>
+</div>
+<div id="outline-container-orgf79f779" class="outline-3">
+<h3 id="orgf79f779">Task 4. Testing</h3>
+<div class="outline-text-3" id="text-orgf79f779">
+<p>
+Write testing cases to verify the correctness of <code>union</code> and <code>intersection</code>. You can build your testing cases in <code>Lab_7.java</code>, before testing the <code>clear</code> method.
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org04bf6ea" class="outline-2">
+<h2 id="org04bf6ea">Resources</h2>
+<div class="outline-text-2" id="text-org04bf6ea">
+<p>
+Please download two source code files from Blackboard.
+</p>
+
+<ul class="org-ul">
+<li><code>Lab_7.java</code></li>
+<li><code>ArrayDictionary.java</code></li>
+<li><code>DictionaryInterface.java</code></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org1eca648" class="outline-2">
+<h2 id="org1eca648">Submission</h2>
+<div class="outline-text-2" id="text-org1eca648">
+<p>
+Please submit your amended Java source file (<code>ArrayDictionary.java</code> and <code>Lab_7.java</code>) with a screenshot of the test cases execution result.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2e817c5" class="outline-2">
+<h2 id="org2e817c5">Appendix</h2>
+<div class="outline-text-2" id="text-org2e817c5">
+</div>
+<div id="outline-container-orgd1a9bd4" class="outline-3">
+<h3 id="orgd1a9bd4"><code>ArrayDictionary.java</code></h3>
+<div class="outline-text-3" id="text-orgd1a9bd4">
+<div class="org-src-container">
+<pre class="src src-java">import java.util.Arrays;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+
+public class ArrayDictionary&lt;K, V&gt; implements DictionaryInterface&lt;K, V&gt; {
+	private Entry&lt;K, V&gt;[] dictionary; // Array of unsorted entries
+	private int numberOfEntries;
+	private boolean integrityOK = false;
+	private final static int DEFAULT_CAPACITY = 6; // 6 is for testing
+	private static final int MAX_CAPACITY = 10000;
+
+	public ArrayDictionary() {
+		this(DEFAULT_CAPACITY); // Call next constructor
+	} // end default constructor
+
+	public ArrayDictionary(int initialCapacity) {
+		checkCapacity(initialCapacity);
+
+		// The cast is safe because the new array contains null entries
+		@SuppressWarnings("unchecked")
+		Entry&lt;K, V&gt;[] tempDictionary = (Entry&lt;K, V&gt;[]) new Entry[initialCapacity];
+		dictionary = tempDictionary;
+		numberOfEntries = 0;
+		integrityOK = true;
+	} // end constructor
+
+	/*********************************************************************
+	 * 
+	 * METHODS TO BE COMPLETED
+	 * 
+	 ***********************************************************************/
+	// Lab 9 Operations
+	// Union
+	public DictionaryInterface&lt;K, V&gt; union(DictionaryInterface&lt;K, V&gt; other) {
+		checkIntegrity();
+		DictionaryInterface&lt;K, V&gt; theUnion = new ArrayDictionary&lt;&gt;();
+		ArrayDictionary&lt;K, V&gt; otherDictionary = (ArrayDictionary&lt;K, V&gt;) other;
+		// Add your code HERE
+
+		return theUnion;
+	} // end union
+
+	// Intersection
+	public DictionaryInterface&lt;K, V&gt; intersection(DictionaryInterface&lt;K, V&gt; other) {
+		checkIntegrity();
+		DictionaryInterface&lt;K, V&gt; theIntersection = new ArrayDictionary&lt;&gt;();
+		ArrayDictionary&lt;K, V&gt; otherDictionary = (ArrayDictionary&lt;K, V&gt;) other;
+		// Add your code HERE
+
+		return theIntersection;
+	} // end intersection
+
+	/*********************************************************************
+	 * 
+	 * End of METHODS TO BE COMPLETED
+	 * 
+	 ***********************************************************************/
+
+	public V add(K key, V value) {
+		checkIntegrity();
+		if ((key == null) || (value == null))
+			throw new IllegalArgumentException("Cannot add null to a dictionary.");
+		else {
+			V result = null;
+			int keyIndex = locateIndex(key); // key cannot be null
+
+			if (keyIndex &lt; numberOfEntries) {
+				// Key found, return and replace entry's value
+				result = dictionary[keyIndex].getValue(); // Get old value
+				dictionary[keyIndex].setValue(value); // Replace value
+			} else // Key not found; add new entry to dictionary
+			{
+				// Add at end of array
+				dictionary[numberOfEntries] = new Entry&lt;&gt;(key, value);
+				numberOfEntries++;
+				ensureCapacity(); // Ensure enough room for next add
+			} // end if
+
+			return result;
+		} // end if
+	} // end add
+
+	public V remove(K key) {
+		checkIntegrity();
+		V result = null;
+		int keyIndex = locateIndex(key);
+
+		if (keyIndex &lt; numberOfEntries) {
+			// Key found; remove entry and return its value
+			result = dictionary[keyIndex].getValue();
+			dictionary[keyIndex] = dictionary[numberOfEntries - 1]; // Replace removed entry with last entry
+			dictionary[numberOfEntries - 1] = null;
+			numberOfEntries--;
+		} // end if
+			// Else result is null
+
+		return result;
+	} // end remove
+
+	public V getValue(K key) {
+		checkIntegrity();
+		V result = null;
+		int keyIndex = locateIndex(key);
+
+		if (keyIndex &lt; numberOfEntries) {
+			result = dictionary[keyIndex].getValue(); // Key found; return value
+		} // end if
+
+		return result;
+	} // end getValue
+
+	public boolean contains(K key) {
+		return getValue(key) != null;
+	} // end contains
+
+	public boolean isEmpty() {
+		return numberOfEntries == 0;
+	} // end isEmpty
+
+	public int getSize() {
+		return numberOfEntries;
+	} // end getSize
+
+	public final void clear() {
+		checkIntegrity();
+
+		// Clear entries but retain array; no need to create a new array
+		for (int index = 0; index &lt; numberOfEntries; index++)
+			dictionary[index] = null;
+
+		numberOfEntries = 0;
+	} // end clear
+
+	public Iterator&lt;K&gt; getKeyIterator() {
+		return new KeyIterator();
+	} // end getKeyIterator
+
+	public Iterator&lt;V&gt; getValueIterator() {
+		return new ValueIterator();
+	} // end getValueIterator
+
+	// Returns the array index of the entry that contains key, or
+	// returns numberOfEntries if no such entry exists.
+	// Precondition: key is not null.
+	private int locateIndex(K key) {
+		// Sequential search
+		int index = 0;
+		while ((index &lt; numberOfEntries) &amp;&amp; !key.equals(dictionary[index].getKey()))
+			index++;
+
+		return index;
+	} // end locateIndex
+
+	// Doubles the size of the array dictionary if it is full.
+	private void ensureCapacity() {
+		if (numberOfEntries &gt;= dictionary.length) {
+			int newCapacity = 2 * dictionary.length;
+			checkCapacity(newCapacity);
+			dictionary = Arrays.copyOf(dictionary, newCapacity);
+		} // end if
+	} // end ensureCapacity
+
+	// Throws an exception if this object is not initialized.
+	private void checkIntegrity() {
+		if (!integrityOK)
+			throw new SecurityException("ArrayDictionary object is corrupt.");
+	} // end checkIntegrity
+
+	// Ensures that the client requests a capacity
+	// that is not too small or too large.
+	private void checkCapacity(int capacity) {
+		if (capacity &lt; DEFAULT_CAPACITY)
+			capacity = DEFAULT_CAPACITY;
+		else if (capacity &gt; MAX_CAPACITY)
+			throw new IllegalStateException("Attempt to create a dictionary " +
+					"whose capacity is larger than " +
+					MAX_CAPACITY);
+	} // end checkCapacity
+
+	// Since iterators implement Iterator, methods must be public.
+	// Same as SortedArrayDictionary.
+	private class KeyIterator implements Iterator&lt;K&gt; {
+		private int currentIndex;
+
+		private KeyIterator() {
+			currentIndex = 0;
+		} // end default constructor
+
+		public boolean hasNext() {
+			return currentIndex &lt; numberOfEntries;
+		} // end hasNext
+
+		public K next() {
+			K result = null;
+
+			if (hasNext()) {
+				Entry&lt;K, V&gt; currentEntry = dictionary[currentIndex];
+				result = currentEntry.getKey();
+				currentIndex++;
+			} else {
+				throw new NoSuchElementException();
+			} // end if
+
+			return result;
+		} // end next
+
+		public void remove() {
+			throw new UnsupportedOperationException();
+		} // end remove
+	} // end KeyIterator
+
+	private class ValueIterator implements Iterator&lt;V&gt; {
+		private int currentIndex;
+
+		private ValueIterator() {
+			currentIndex = 0;
+		} // end default constructor
+
+		public boolean hasNext() {
+			return currentIndex &lt; numberOfEntries;
+		} // end hasNext
+
+		public V next() {
+			V result = null;
+
+			if (hasNext()) {
+				Entry&lt;K, V&gt; currentEntry = dictionary[currentIndex];
+				result = currentEntry.getValue();
+				currentIndex++;
+			} else {
+				throw new NoSuchElementException();
+			} // end if
+
+			return result;
+		} // end next
+
+		public void remove() {
+			throw new UnsupportedOperationException();
+		} // end remove
+	} // end getValueIterator
+
+	private class Entry&lt;K, V&gt; {
+		private K key;
+		private V value;
+
+		private Entry(K searchKey, V dataValue) {
+			key = searchKey;
+			value = dataValue;
+		} // end constructor
+
+		private K getKey() {
+			return key;
+		} // end getKey
+
+		private V getValue() {
+			return value;
+		} // end getValue
+
+		private void setValue(V dataValue) {
+			value = dataValue;
+		} // end setValue
+
+		// No setKey method
+	} // end Entry
+} // end ArrayDictionary
+
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0cb357f" class="outline-3">
+<h3 id="org0cb357f"><code>Lab_7.java</code></h3>
+<div class="outline-text-3" id="text-org0cb357f">
+<div class="org-src-container">
+<pre class="src src-java">import java.util.Iterator;
+
+public class Lab_7 {
+	public static void main(String[] args) {
+		testDictionary();
+		System.out.println("\n\nDone.");
+	} // end main
+
+	public static void testDictionary() {
+		String dirk = "Dirk";
+		String abel = "Abel";
+		String miguel = "Miguel";
+		String tabbie = "Tabatha";
+		String tom = "Tom";
+		String sam = "Sam";
+		String reiss = "Reiss";
+		String bette = "Bette";
+		String carole = "Carole";
+		String derek = "Derek";
+		String nancy = "Nancy";
+		String bogus = "Bo";
+
+		// Create a dictionary
+		DictionaryInterface&lt;String, String&gt; nameList = new ArrayDictionary&lt;&gt;();
+
+		System.out.println("Create a dictionary:\n");
+		System.out.println("Initial dictionary should be empty; isEmpty() returns " +
+				nameList.isEmpty());
+
+		// Test add
+		System.out.println("\n\nTesting add():\n");
+		nameList.add(dirk, "555-1234");
+		nameList.add(abel, "555-5678");
+		nameList.add(miguel, "555-9012");
+		nameList.add(tabbie, "555-3456");
+		nameList.add(tom, "555-5555");
+		nameList.add(sam, "555-7890");
+		nameList.add(reiss, "555-2345");
+		nameList.add(bette, "555-7891");
+		nameList.add(carole, "555-7892");
+		nameList.add(derek, "555-7893");
+		nameList.add(nancy, "555-7894");
+
+		System.out.println(nameList.getSize() + " (should be 11) items in dictionary, as follows:\n");
+		display(nameList);
+
+		// Test getValue
+		System.out.println("\n\nTesting getValue():\n");
+		System.out.println("\nAbel:   " + nameList.getValue(abel) + " should be 555-5678");
+		System.out.println("\nSam:    " + nameList.getValue(sam) + " should be 555-7890");
+		System.out.println("\nTom:    " + nameList.getValue(tom) + " should be 555-5555");
+		System.out.println("\nReiss:  " + nameList.getValue(reiss) + " should be 555-2345");
+		System.out.println("\nMiguel: " + nameList.getValue(miguel) + " should be 555-9012");
+
+		// Test contains
+		System.out.println("\n\n\nTesting contains():\n");
+
+		if (nameList.contains(sam))
+			System.out.println("\nSam is in dictionary - OK");
+		else
+			System.out.println("Error in contains()");
+
+		if (nameList.contains(abel))
+			System.out.println("\nAbel is in dictionary - OK");
+		else
+			System.out.println("Error in contains()");
+
+		if (nameList.contains(miguel))
+			System.out.println("\nMiguel is in dictionary - OK");
+		else
+			System.out.println("Error in contains()");
+
+		if (nameList.contains(tom))
+			System.out.println("\nTom is in dictionary - OK");
+		else
+			System.out.println("Error in contains()");
+
+		if (!nameList.contains(bogus))
+			System.out.println("\nBo is not in dictionary - OK");
+		else
+			System.out.println("Error in contains()");
+
+		// Remove first item
+		System.out.println("\n\n\nRemoving first item Dirk - Dirk's number is " +
+				nameList.remove(dirk) + " should be 555-1234");
+
+		// Test replacing value
+		System.out.println("Replacing phone number of Reiss and Miguel:\n");
+		String oldNumber = nameList.add(reiss, "555-5432");
+		System.out.println("Reiss's old number " + oldNumber + " is replaced by 555-5432");
+		oldNumber = nameList.add(miguel, "555-2109");
+		System.out.println("Miguel's old number " + oldNumber + " is replaced by 555-2109");
+
+		System.out.println("\n" + nameList.getSize() +
+				" (should be 10) items in dictionary, as follows:\n");
+		display(nameList);
+
+		// Remove interior and last items
+		System.out.println("\n\nRemoving interior item Reiss:\n");
+		nameList.remove(reiss);
+		System.out.println("\n" + nameList.getSize() +
+				" (should be 9) items in dictionary, as follows:\n");
+		display(nameList);
+		System.out.println("\n\nRemoving last item Carole:\n");
+		nameList.remove(carole);
+		System.out.println("\n" + nameList.getSize() +
+				" (should be 8) items in dictionary, as follows:\n");
+		display(nameList);
+
+		// Remove Bo (not in dictionary)
+		System.out.println("\nRemoving Bo (not in dictionary):\n");
+		String result = nameList.remove(bogus);
+		if (result == null)
+			System.out.println("Bo was not found in the dictionary.");
+		else
+			System.out.println("Error in remove().");
+
+		System.out.println("\n\n" + nameList.getSize() +
+				" (should be 8) items in dictionary, as follows:\n");
+		display(nameList);
+
+		// Test clear
+		System.out.println("\n\nTesting clear():\n");
+		nameList.clear();
+
+		System.out.println("Dictionary should be empty; isEmpty() returns " +
+				nameList.isEmpty());
+	} // testDictionary
+
+	public static void display(DictionaryInterface&lt;String, String&gt; dictionary) {
+		Iterator&lt;String&gt; keyIterator = dictionary.getKeyIterator();
+		Iterator&lt;String&gt; valueIterator = dictionary.getValueIterator();
+
+		while (keyIterator.hasNext() &amp;&amp; valueIterator.hasNext())
+			System.out.println(keyIterator.next() + " : " + valueIterator.next());
+		System.out.println();
+	} // end display
+} // end Driver
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
