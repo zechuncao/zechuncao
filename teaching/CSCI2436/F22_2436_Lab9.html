@@ -1,0 +1,710 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2022-11-14 Mon 12:05 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Lab 9 - Chapter 22 Hashed Dictionary (Nov 14th)</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Zechun Cao" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://gongzhitaao.org/orgcss/org.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/highlight.min.js"></script>
+<script>var hlf=function(){Array.prototype.forEach.call(document.querySelectorAll("pre.src"),function(t){var e;e=t.getAttribute("class"),e=e.replace(/src-(\w+)/,"src-$1 $1"),console.log(e),t.setAttribute("class",e),hljs.highlightBlock(t)})};addEventListener("DOMContentLoaded",hlf);</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/styles/googlecode.min.css" />
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Lab 9 - Chapter 22 Hashed Dictionary (Nov 14th)</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org66a0aef">Overview</a></li>
+<li><a href="#org0c913fc">Starter Codes</a></li>
+<li><a href="#orga0d68cd">Tasks</a>
+<ul>
+<li><a href="#org2cab866">Task 1. Download Starter Codes</a></li>
+<li><a href="#org4b84609">Task 2. Write Driver Class</a></li>
+</ul>
+</li>
+<li><a href="#orgc2ea54b">Submission</a></li>
+<li><a href="#org842148f">Appendix</a></li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org66a0aef" class="outline-2">
+<h2 id="org66a0aef">Overview</h2>
+<div class="outline-text-2" id="text-org66a0aef">
+<p>
+In this lab, you will explore using a dictionary implemented by hashing table.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0c913fc" class="outline-2">
+<h2 id="org0c913fc">Starter Codes</h2>
+<div class="outline-text-2" id="text-org0c913fc">
+<p>
+Please download two source code files from Blackboard.
+</p>
+
+<ul class="org-ul">
+<li><code>HashedDictionary.java</code></li>
+<li><code>DictionaryInterface.java</code></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orga0d68cd" class="outline-2">
+<h2 id="orga0d68cd">Tasks</h2>
+<div class="outline-text-2" id="text-orga0d68cd">
+</div>
+<div id="outline-container-org2cab866" class="outline-3">
+<h3 id="org2cab866">Task 1. Download Starter Codes</h3>
+</div>
+
+<div id="outline-container-org4b84609" class="outline-3">
+<h3 id="org4b84609">Task 2. Write Driver Class</h3>
+<div class="outline-text-3" id="text-org4b84609">
+<p>
+With the starter codes, implement a driver class with a <code>main</code> method that displays the following output. This should test several methods defined in the <code>HashedDictionary.java</code>. 
+</p>
+
+<p>
+You should add the <code>display</code> method in your driver class to generate output.
+</p>
+<div class="org-src-container">
+<pre class="src src-java">public static &lt;S, T&gt; void display(DictionaryInterface&lt;S,T&gt; dictionary){
+	Iterator&lt;S&gt; keyIterator = dictionary.getKeyIterator();
+	Iterator&lt;T&gt; valueIterator = dictionary.getValueIterator();
+
+	while (keyIterator.hasNext() &amp;&amp; valueIterator.hasNext())
+	    System.out.println(keyIterator.next() + " : " + valueIterator.next());
+
+	System.out.println();
+}
+</pre>
+</div>
+
+<p>
+Your output of the execution result should look like the following:
+</p>
+
+<pre class="example">
+17 items in dictionary, as follows:
+
+Jefferson : 555-8891
+Priscila : 555-7894
+Onur : 555-1234
+Claudia : 555-2345
+Brennan : 555-7893
+Grason : 555-5894
+Tobi : 555-7891
+Julie : 555-8893
+Catalina : 555-5555
+Michael : 555-3456
+John : 555-7890
+Adrian : 555-7892
+Stephanie : 555-8892
+Guest : 555-1234
+Juan : 555-9012
+Fernando : 555-5678
+Jared : 555-8894
+
+Testing getValue():
+
+Fernando: 555-5678 should be 555-5678
+John: 555-7890 should be 555-7890
+Catalina: 555-5555 should be 555-5555
+Claudia: 555-2345 should be 555-2345
+Juan: 555-9012 should be 555-9012
+Adrian: 555-7892 should be 555-7892
+Priscila: 555-7894 should be 555-7894
+Jefferson: 555-8891 should be 555-8891
+Stephanie: 555-8892 should be 555-8892
+
+Testing contains():
+
+Grason is in dictionary - OK
+Julie is in dictionary - OK
+
+Testing remove():
+
+Removing Iterator Guest:
+
+Replacing phone numbers:
+
+Onur's old number 555-1234 is replaced by 555-5432
+
+Michael's old number 555-3456 is replaced by 555-2109
+Brennan's old number 555-7893 is replaced by 555-0009
+
+
+16 items in dictionary, as follows:
+
+Jefferson : 555-8891
+Priscila : 555-7894
+Onur : 555-5432
+Claudia : 555-2345
+Brennan : 555-0009
+Grason : 555-5894
+Tobi : 555-3109
+Julie : 555-8893
+Catalina : 555-5555
+Michael : 555-2109
+John : 555-7890
+Adrian : 555-7892
+Stephanie : 555-8892
+Juan : 555-9012
+Fernando : 555-5678
+Jared : 555-8894
+
+Testing clear():
+
+Dictionary should be empty;
+
+isEmpty() returns true
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc2ea54b" class="outline-2">
+<h2 id="orgc2ea54b">Submission</h2>
+<div class="outline-text-2" id="text-orgc2ea54b">
+<p>
+Please submit your driver class (<code>YourName.java</code>) with a screenshot of the execution result.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org842148f" class="outline-2">
+<h2 id="org842148f">Appendix</h2>
+<div class="outline-text-2" id="text-org842148f">
+<div class="org-src-container">
+<pre class="src src-java">import java.util.Iterator;
+import java.util.NoSuchElementException;
+
+public class HashedDictionary&lt;K, V&gt; implements DictionaryInterface&lt;K, V&gt;
+{
+   // The dictionary:
+    private int numberOfEntries;
+    private static final int DEFAULT_CAPACITY = 49;        
+
+   // The hash table:
+    private Entry&lt;K, V&gt;[] hashTable;
+
+    private final Entry&lt;K, V&gt; AVAILABLE = new Entry&lt;&gt;(null, null); 
+	public HashedDictionary()
+	{
+		this(DEFAULT_CAPACITY); // Call next constructor
+	} 
+
+	public HashedDictionary(int initialCapacity)
+	{
+	    numberOfEntries = 0;    // Dictionary is empty      
+
+	    int tableSize = 49;//getNextPrime(initialCapacity);
+
+	    @SuppressWarnings("unchecked")
+	    Entry&lt;K, V&gt;[] temp = (Entry&lt;K, V&gt;[])new Entry[tableSize];
+	    hashTable = temp;         
+	} 
+
+	public V add(K key, V value)
+	{
+
+	    if ((key == null) || (value == null))
+	       throw new IllegalArgumentException("Cannot add null to a dictionary.");
+	    else
+	    {
+		V oldValue;                
+
+		 int index = getHashIndex(key);
+
+		// Assertion: index is within legal range for hashTable
+		assert (index &gt;= 0) &amp;&amp; (index &lt; hashTable.length);
+
+		if ( (hashTable[index] == null) || (hashTable[index] == AVAILABLE) )
+		{  // Key not found, so insert new entry
+		   hashTable[index] = new Entry&lt;&gt;(key, value);
+		   numberOfEntries++;
+		    oldValue = null;
+		}
+		else
+		{ // Key found; get old value for return and then replace it
+		   oldValue = hashTable[index].getValue();
+		   hashTable[index].setValue(value);
+		} 
+	    return oldValue;
+	 } 
+      } 
+
+    public V remove(K key)
+    {
+
+      V removedValue = null;
+
+	int index = getHashIndex(key);
+
+	if ((hashTable[index] != null) &amp;&amp; (hashTable[index] != AVAILABLE))
+	{
+		// Key found; flag entry as removed and return its value
+		removedValue = hashTable[index].getValue();
+		hashTable[index] = AVAILABLE;
+		numberOfEntries--;
+	} 		
+	return removedValue;
+   } 
+
+   public V getValue(K key)
+   {
+
+      V result = null;
+
+      int index = getHashIndex(key);
+
+      if ((hashTable[index] != null) &amp;&amp; (hashTable[index] != AVAILABLE))
+	 result = hashTable[index].getValue(); // Key found; get value      
+
+      return result;
+   } 
+
+    public boolean contains(K key)
+    {
+	return getValue(key) != null; 
+    } 
+
+    public boolean isEmpty()
+    {
+      return numberOfEntries == 0;
+    } 
+
+    public int getSize()
+    {
+      return numberOfEntries;
+    } 
+
+    public final void clear()
+    { 
+	for (int index = 0; index &lt; hashTable.length; index++)
+	    hashTable[index] = null;
+
+	numberOfEntries = 0;
+    } 
+
+	public Iterator&lt;K&gt; getKeyIterator()
+	{ 
+		return new KeyIterator();
+	} 
+
+	public Iterator&lt;V&gt; getValueIterator()
+	{	
+		return new ValueIterator();
+	} 
+
+	private int getHashIndex(K key)
+	{
+	    int hashIndex = key.hashCode() % hashTable.length;
+
+	    if (hashIndex &lt; 0)
+	    {
+		hashIndex = hashIndex + hashTable.length;
+	    } 
+
+	    // Check for and resolve collision
+	    hashIndex = quadraticProbe(hashIndex, key);
+
+	    return hashIndex;
+	} 
+
+
+   private int quadraticProbe(int index, K key)
+   {
+      boolean found = false;
+      int availableIndex = -1;    // Index of first available location (from which an entry was removed)
+      int increment = 1;          // For quadratic probing
+
+      while ( !found &amp;&amp; (hashTable[index] != null) )
+      {
+	 if ((hashTable[index] != null) &amp;&amp; (hashTable[index] != AVAILABLE))
+	 {
+	    if (key.equals(hashTable[index].getKey()))
+	       found = true; // Key found
+	    else             // Follow probe sequence
+	    {
+	       index = (index + increment) % hashTable.length; // Quadratic probing
+	       increment = increment + 2;                      // Odd values for quadratic probing
+	    } 
+	 }
+	 else // Skip entries that were removed
+	 {
+	    // Save index of first location in removed state
+	    if (availableIndex == -1)
+	       availableIndex = index;
+	    index = (index + increment) % hashTable.length;    // Quadratic probing
+	    increment = increment + 2;                         // Odd values for quadratic probing
+	 } 
+      } 
+
+      if (found || (availableIndex == -1) )
+	 return index;                                      // Index of either key or null
+      else
+	 return availableIndex;                          // Index of an available location
+   } 
+
+   private class KeyIterator implements Iterator&lt;K&gt;
+	{
+      private int currentIndex; // Current position in hash table
+      private int numberLeft;   // Number of entries left in iteration
+
+      private KeyIterator() 
+      {
+	 currentIndex = 0;
+	 numberLeft = numberOfEntries;
+      } 
+      public boolean hasNext() 
+      {
+	 return numberLeft &gt; 0;
+      } // end hasNext
+
+      public K next()
+      {
+	 K result = null;
+
+	 if (hasNext())
+	 {
+	    // Skip table locations that do not contain a current entry
+	    while ( (hashTable[currentIndex] == null) || hashTable[currentIndex] == AVAILABLE )
+	    {
+	       currentIndex++;
+	    } 
+
+	    result = hashTable[currentIndex].getKey();
+	    numberLeft--;
+	    currentIndex++;
+	 }
+	 else
+	    throw new NoSuchElementException();
+
+	 return result;
+      } // end next
+
+      public void remove()
+      {
+	 throw new UnsupportedOperationException();
+      } // end remove
+    } 
+
+private class ValueIterator implements Iterator&lt;V&gt;
+{
+	private int currentIndex;
+	private int numberLeft; 
+
+	private ValueIterator() 
+	{
+		currentIndex = 0;
+		numberLeft = numberOfEntries;
+	} // end default constructor
+
+	public boolean hasNext() 
+	{
+		return numberLeft &gt; 0; 
+	} // end hasNext
+
+	public V next()
+	{
+	    V result = null;
+
+	    if (hasNext())
+	    {
+	    // Skip table locations that do not contain a current entry
+		while ( (hashTable[currentIndex] == null) || hashTable[currentIndex] == AVAILABLE )
+		{
+		    currentIndex++;
+		} // end while
+
+		result = hashTable[currentIndex].getValue();
+		numberLeft--;
+		currentIndex++;
+	    }
+	    else
+		throw new NoSuchElementException();
+
+	    return result;
+	} // end next
+
+	public void remove()
+	{
+		throw new UnsupportedOperationException();
+	} // end remove
+    } // end ValueIterator
+
+    protected final class Entry&lt;K, V&gt;
+    {
+	private K key;
+	private V value;
+
+	private Entry(K searchKey, V dataValue)
+	{
+	     key = searchKey;
+	     value = dataValue;
+	} 
+
+	private K getKey()
+	{
+	    return key;
+	} 
+
+	private V getValue()
+	{
+	    return value;
+	} 
+
+	private void setValue(V newValue)
+	{
+	    value = newValue;
+	} 
+    } 
+} 
+</pre>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
