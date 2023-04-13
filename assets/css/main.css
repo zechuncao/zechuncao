@@ -35,6 +35,35 @@ body.sticky-bottom-footer { padding-bottom: 0; }
 
 /****************************************************************************** Publications */
 /***************************************************************************** Projects */
+/***************************************************************************** News */
+.news { border-top: 1px solid #e8e8e8; margin-top: 30px; padding-top: 20px; }
+
+.news h2 { font-weight: bold; margin-top: 0; margin-bottom: 10px; }
+
+.news table { border-collapse: collapse; width: 100%; }
+
+.news table .date { width: 13%; }
+
+.news table .announcement { width: 81%; }
+
+.news table tr { text-align: left; }
+
+.news table td { padding: 6px 0; vertical-align: top; border: none; }
+
+.newsPage { margin-top: 30px; padding-top: 20px; }
+
+.newsPage h2 { font-weight: bold; margin-top: 0; margin-bottom: 10px; }
+
+.newsPage table { border-collapse: collapse; width: 100%; }
+
+.newsPage table .date { width: 13%; }
+
+.newsPage table .announcement { width: 81%; }
+
+.newsPage table tr { text-align: left; }
+
+.newsPage table td { padding: 6px 0; vertical-align: top; border: none; }
+
 /******************************************************************************* Styles for the base elements of the theme. */
 p, h1, h2, h3, h4, h5, h6, em, div, li, span, strong { color: var(--global-text-color); }
 
