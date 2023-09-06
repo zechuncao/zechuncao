@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-09-05 Tue 10:53 -->
+<!-- 2023-09-05 Tue 21:03 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Lab 1 - Triangle Class (Week 2)</title>
@@ -55,25 +55,25 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org53021d0">Task 1. Data Fields</a></li>
-<li><a href="#org3fd3573">Task 2. Constructors</a></li>
-<li><a href="#orgfe3fda4">Task 3. Methods</a></li>
-<li><a href="#org0170213">Task 4. TestTriangle Class</a></li>
-<li><a href="#org4af420f">Submission</a></li>
+<li><a href="#org494ec15">Task 1. Data Fields</a></li>
+<li><a href="#org5d63815">Task 2. Constructors</a></li>
+<li><a href="#orgf33d18a">Task 3. Methods</a></li>
+<li><a href="#org44b71e5">Task 4. TestTriangle Class</a></li>
+<li><a href="#org6bd53fb">Submission</a></li>
 </ul>
 </div>
 </div>
 <p>
-<b>Section 02L: Due Friday, Sep 8th / Section 60L: Due Sunday, Sep 10th</b>
+<b>Section 60L: Due Friday, Sep 8th / Section 02L: Due Sunday, Sep 10th</b>
 </p>
 
 <p>
 Define a <code>Triangle</code> class with <code>TestTriangle</code> class in a single <code>lab1.java</code> file, similar to the <code>SimpleCircle</code> example in the lecture. Build <code>Triangle</code> class with requirements below, then write a <code>main</code> function in the <code>TestTriangle</code> class to test functionalities.
 </p>
 
-<div id="outline-container-org53021d0" class="outline-2">
-<h2 id="org53021d0">Task 1. Data Fields</h2>
-<div class="outline-text-2" id="text-org53021d0">
+<div id="outline-container-org494ec15" class="outline-2">
+<h2 id="org494ec15">Task 1. Data Fields</h2>
+<div class="outline-text-2" id="text-org494ec15">
 <ul class="org-ul">
 <li>Define a <code>String</code> data field names <code>name</code> to denote the name of the triangle, with no default value assigned.</li>
 <li>Define three <code>double</code> type data fields named <code>side1</code>, <code>side2</code>, and <code>side3</code> with default values of \(1.0\) to denote three sides of triangle.</li>
@@ -81,9 +81,9 @@ Define a <code>Triangle</code> class with <code>TestTriangle</code> class in a s
 </div>
 </div>
 
-<div id="outline-container-org3fd3573" class="outline-2">
-<h2 id="org3fd3573">Task 2. Constructors</h2>
-<div class="outline-text-2" id="text-org3fd3573">
+<div id="outline-container-org5d63815" class="outline-2">
+<h2 id="org5d63815">Task 2. Constructors</h2>
+<div class="outline-text-2" id="text-org5d63815">
 <ul class="org-ul">
 <li>Constructor #1: A <code>no-arg</code> constructor that creates a triangle with default values for <code>side1</code>, <code>side2</code>, and <code>side3</code>.</li>
 <li>Constructor #2: A constructor to create a triangle with the specified values for <code>name</code>, <code>side1</code>, <code>side2</code>, and <code>side3</code>.</li>
@@ -91,9 +91,9 @@ Define a <code>Triangle</code> class with <code>TestTriangle</code> class in a s
 </div>
 </div>
 
-<div id="outline-container-orgfe3fda4" class="outline-2">
-<h2 id="orgfe3fda4">Task 3. Methods</h2>
-<div class="outline-text-2" id="text-orgfe3fda4">
+<div id="outline-container-orgf33d18a" class="outline-2">
+<h2 id="orgf33d18a">Task 3. Methods</h2>
+<div class="outline-text-2" id="text-orgf33d18a">
 <ul class="org-ul">
 <li><p>
 Three public accessor methods (<i>getters</i>) for <b>three</b> data fields <code>side1</code>, <code>side2</code>, and <code>side3</code>. For example:
@@ -112,21 +112,21 @@ Three public accessor methods (<i>getters</i>) for <b>three</b> data fields <cod
 <li><p>
 A method named <code>toString()</code> that returns a description, <code>String</code> type, for the state of the triangle. Example description shown below:
 </p>
-<pre class="example" id="org9eb3c07">
+<pre class="example" id="orgec97c89">
 Triangle name: my_triangle
 side1 = 1.0
 side2 = 2.0
 side3 = 2.0
 Area = 0.9682
-Perimeter = 5
+Perimeter = 5.0
 </pre></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org0170213" class="outline-2">
-<h2 id="org0170213">Task 4. TestTriangle Class</h2>
-<div class="outline-text-2" id="text-org0170213">
+<div id="outline-container-org44b71e5" class="outline-2">
+<h2 id="org44b71e5">Task 4. TestTriangle Class</h2>
+<div class="outline-text-2" id="text-org44b71e5">
 <p>
 Write a test function (<code>main</code> function) in the <code>TestTriangle</code> class, so the test function can test all functionalities in <code>Triangle</code> class. Example test function below:
 </p>
@@ -135,9 +135,9 @@ Write a test function (<code>main</code> function) in the <code>TestTriangle</co
         <span style="color: #5B6268;">// </span><span style="color: #5B6268;">Create a triangle with no-arg constructor</span>
         <span style="color: #ECBE7B;">Triangle</span> <span style="color: #dcaeea;">triangle1</span> = <span style="color: #51afef;">new</span> <span style="color: #ECBE7B;">Triangle</span>();
         System.out.println(triangle1.toString());
-        triangle1.setSide1(<span style="color: #da8548; font-weight: bold;">4.0</span>)
-        triangle1.setSide2(<span style="color: #da8548; font-weight: bold;">4.0</span>)
-        triangle1.setSide3(<span style="color: #da8548; font-weight: bold;">4.0</span>)
+        triangle1.setSide1(<span style="color: #da8548; font-weight: bold;">4.0</span>);
+        triangle1.setSide2(<span style="color: #da8548; font-weight: bold;">4.0</span>);
+        triangle1.setSide3(<span style="color: #da8548; font-weight: bold;">4.0</span>);
         System.out.println(triangle1.toString());
 
 
@@ -145,16 +145,16 @@ Write a test function (<code>main</code> function) in the <code>TestTriangle</co
         <span style="color: #ECBE7B;">Triangle</span> <span style="color: #dcaeea;">my_triangle</span> = <span style="color: #51afef;">new</span> <span style="color: #ECBE7B;">Triangle</span>(<span style="color: #98be65;">"myTriangle"</span>, <span style="color: #da8548; font-weight: bold;">1.0</span>, <span style="color: #da8548; font-weight: bold;">2.0</span>, <span style="color: #da8548; font-weight: bold;">2.0</span>);
         System.out.println(my_triangle.name + <span style="color: #98be65;">" Area: "</span> + my_triangle.getArea());
         System.out.println(my_triangle.name + <span style="color: #98be65;">" Perimeter: "</span> + my_triangle.getPerimeter());
-        System.out.println(my_triangle.toString())
+        System.out.println(my_triangle.toString());
     }
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org4af420f" class="outline-2">
-<h2 id="org4af420f">Submission</h2>
-<div class="outline-text-2" id="text-org4af420f">
+<div id="outline-container-org6bd53fb" class="outline-2">
+<h2 id="org6bd53fb">Submission</h2>
+<div class="outline-text-2" id="text-org6bd53fb">
 <p>
 Please ONLY submit <code>lab1.java</code> file with a screenshot of the execution result to Blackboard.
 </p>
