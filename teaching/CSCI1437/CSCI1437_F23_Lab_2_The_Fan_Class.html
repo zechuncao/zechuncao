@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-09-12 Tue 16:32 -->
+<!-- 2023-09-13 Wed 11:33 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Lab 2 - The Fan Class (Week 3)</title>
@@ -23,11 +23,11 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orga736585">Task 1. Data Fields</a></li>
-<li><a href="#orgd3eb84e">Task 2. Constructors</a></li>
-<li><a href="#org711b384">Task 3. Methods</a></li>
-<li><a href="#org2427240">Task 4. TestFan Class</a></li>
-<li><a href="#org82ac5a2">Submission</a></li>
+<li><a href="#org10b8278">Task 1. Data Fields</a></li>
+<li><a href="#org8fefe13">Task 2. Constructors</a></li>
+<li><a href="#orga1f4f69">Task 3. Methods</a></li>
+<li><a href="#org2dafbf5">Task 4. TestFan Class</a></li>
+<li><a href="#orgb3ce903">Submission</a></li>
 </ul>
 </div>
 </div>
@@ -39,11 +39,11 @@
 Design a class named <code>Fan</code> with a <code>TestFan</code> class to define a fan and its behavior, similar to the <code>TV</code> example in the lecture. Build the <code>Fan</code> class with requirements below, then write a <code>main</code> function in your <code>TestFan</code> class to test the functionalities.
 </p>
 
-<div id="outline-container-orga736585" class="outline-2">
-<h2 id="orga736585">Task 1. Data Fields</h2>
-<div class="outline-text-2" id="text-orga736585">
+<div id="outline-container-org10b8278" class="outline-2">
+<h2 id="org10b8278">Task 1. Data Fields</h2>
+<div class="outline-text-2" id="text-org10b8278">
 <ul class="org-ul">
-<li>Three <code>constants</code> names <code>SLOW</code>, <code>MEDIUM</code>, and <code>FAST</code> with the values <code>1</code>, <code>2</code>, and <code>3</code> to denote the fan speed.</li>
+<li>Three static <code>int</code> <code>constants</code> names <code>SLOW</code>, <code>MEDIUM</code>, and <code>FAST</code> with the values <code>1</code>, <code>2</code>, and <code>3</code> to denote the fan speed.</li>
 <li>A <b>static</b> data field named <code>numOfFans</code> that keeps track of the number of fan objects created.</li>
 <li>A <b>private</b> <code>int</code> data field named <code>speed</code> that specifies the speed of the fan, the default is <code>SLOW</code>.</li>
 <li>A <b>private</b> <code>boolean</code> data field named <code>on</code> that specifies whether the fan is on (the default is <code>false</code>).</li>
@@ -53,12 +53,12 @@ Design a class named <code>Fan</code> with a <code>TestFan</code> class to defin
 </div>
 </div>
 
-<div id="outline-container-orgd3eb84e" class="outline-2">
-<h2 id="orgd3eb84e">Task 2. Constructors</h2>
-<div class="outline-text-2" id="text-orgd3eb84e">
+<div id="outline-container-org8fefe13" class="outline-2">
+<h2 id="org8fefe13">Task 2. Constructors</h2>
+<div class="outline-text-2" id="text-org8fefe13">
 <ul class="org-ul">
 <li>Constructor #1: A <code>no-arg</code> constructor that creates a fan with default values for all data fields.</li>
-<li>Constructor #2: A constructor to create a triangle with the specified values for <code>speed</code>, <code>on</code>, <code>size</code>, and <code>color</code>.</li>
+<li>Constructor #2: A constructor to create a fan with the specified values for <code>speed</code>, <code>on</code>, <code>size</code>, and <code>color</code>.</li>
 </ul>
 <p>
 <i>&lowast; Note: you need to properly update, i.e., increment by 1, the value stored in <code>numOfFans</code> in both constructors.</i>
@@ -66,9 +66,9 @@ Design a class named <code>Fan</code> with a <code>TestFan</code> class to defin
 </div>
 </div>
 
-<div id="outline-container-org711b384" class="outline-2">
-<h2 id="org711b384">Task 3. Methods</h2>
-<div class="outline-text-2" id="text-org711b384">
+<div id="outline-container-orga1f4f69" class="outline-2">
+<h2 id="orga1f4f69">Task 3. Methods</h2>
+<div class="outline-text-2" id="text-orga1f4f69">
 <ul class="org-ul">
 <li>The <b>public</b> accessor (<i>getters</i>) and mutator (<i>setters</i>) methods for all four data fields.</li>
 <li>A <b>public</b> method named <code>toString()</code> that returns a string description for the fan. If the fan is on, the method returns the fan speed, color, and size in one combined string. If the fan is not on, the method returns the fan color and radius along with the string “fan is off” in one combined string.</li>
@@ -80,9 +80,9 @@ Design a class named <code>Fan</code> with a <code>TestFan</code> class to defin
 </div>
 </div>
 
-<div id="outline-container-org2427240" class="outline-2">
-<h2 id="org2427240">Task 4. TestFan Class</h2>
-<div class="outline-text-2" id="text-org2427240">
+<div id="outline-container-org2dafbf5" class="outline-2">
+<h2 id="org2dafbf5">Task 4. TestFan Class</h2>
+<div class="outline-text-2" id="text-org2dafbf5">
 <p>
 Write a test function (<code>main</code> function) in the <code>TestFan</code> class, so the test function can test all functionalities in the <code>Fan</code> class. Write a test program that creates two <code>Fan</code> objects. Assign maximum speed, <code>size=10</code>, color yellow, and turn it on to the first object. Assign medium speed, <code>size=5</code>, color blue, and turn it off to the second object. Display the objects by invoking their <code>toString()</code> method.
 </p>
@@ -90,9 +90,9 @@ Write a test function (<code>main</code> function) in the <code>TestFan</code> c
 </div>
 
 
-<div id="outline-container-org82ac5a2" class="outline-2">
-<h2 id="org82ac5a2">Submission</h2>
-<div class="outline-text-2" id="text-org82ac5a2">
+<div id="outline-container-orgb3ce903" class="outline-2">
+<h2 id="orgb3ce903">Submission</h2>
+<div class="outline-text-2" id="text-orgb3ce903">
 <p>
 Please ONLY submit <code>Fan.java</code> and <code>TestFan.java</code> files with a screenshot of the execution result to Blackboard.
 </p>
