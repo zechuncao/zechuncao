@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-09-28 Thu 08:35 -->
+<!-- 2023-09-28 Thu 17:17 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>CSCI 1437 Programming Fundamentals II Project</title>
@@ -23,61 +23,61 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orga9860cf">Due Date</a></li>
-<li><a href="#org1127532">Overview</a></li>
-<li><a href="#org20ed63b">Tasks</a>
+<li><a href="#orge948f4d">Due Date</a></li>
+<li><a href="#org4b75f22">Overview</a></li>
+<li><a href="#org6db1bd4">Tasks</a>
 <ul>
-<li><a href="#org8552ccb">Step 1: Implement Book</a></li>
-<li><a href="#org1f58afc">Step 2: Implement Library</a>
+<li><a href="#orgbe22586">Step 1: Implement Book</a></li>
+<li><a href="#orga58100a">Step 2: Implement Library</a>
 <ul>
-<li><a href="#orgeb8077a">Notes</a></li>
+<li><a href="#org909eb59">Notes</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org7e2337f">Submission Instructions</a></li>
-<li><a href="#org5dc056a">Book.java</a></li>
-<li><a href="#org727a6ec">Library.java</a></li>
+<li><a href="#org3aec756">Submission Instructions</a></li>
+<li><a href="#org55c6c84">Book.java</a></li>
+<li><a href="#org6587376">Library.java</a></li>
 </ul>
 </div>
 </div>
 
 
 
-<div id="outline-container-orga9860cf" class="outline-2">
-<h2 id="orga9860cf">Due Date</h2>
-<div class="outline-text-2" id="text-orga9860cf">
+<div id="outline-container-orge948f4d" class="outline-2">
+<h2 id="orge948f4d">Due Date</h2>
+<div class="outline-text-2" id="text-orge948f4d">
 <p>
 This project is due on <b>Dec 1st at 11:59 pm</b>.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org1127532" class="outline-2">
-<h2 id="org1127532">Overview</h2>
-<div class="outline-text-2" id="text-org1127532">
+<div id="outline-container-org4b75f22" class="outline-2">
+<h2 id="org4b75f22">Overview</h2>
+<div class="outline-text-2" id="text-org4b75f22">
 <p>
 The libraries of SmallTownX need a new electronic rental system, and it is up to you to build it. SmallTownX has two libraries. Each library offers many books to rent. Customers can print the list of available books and borrow and return books.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org20ed63b" class="outline-2">
-<h2 id="org20ed63b">Tasks</h2>
-<div class="outline-text-2" id="text-org20ed63b">
+<div id="outline-container-org6db1bd4" class="outline-2">
+<h2 id="org6db1bd4">Tasks</h2>
+<div class="outline-text-2" id="text-org6db1bd4">
 <p>
 You&rsquo;re provided two classes, <code>Book</code> and <code>Library</code>, that provide the functionality for the book database. You must implement the missing methods to make these classes work.
 </p>
 </div>
 
-<div id="outline-container-org8552ccb" class="outline-3">
-<h3 id="org8552ccb">Step 1: Implement Book</h3>
-<div class="outline-text-3" id="text-org8552ccb">
+<div id="outline-container-orgbe22586" class="outline-3">
+<h3 id="orgbe22586">Step 1: Implement Book</h3>
+<div class="outline-text-3" id="text-orgbe22586">
 <p>
 First, we need a class to model books. Start by creating a class called <code>Book</code>. Copy and paste the skeleton below. This class defines methods to get the title of a book, find out if it is available, borrow the book, and return the book. However, the skeleton that we provide is missing the implementations of the methods. Fill in the body of the methods with the appropriate code. The <code>main</code> method tests the methods. When you run the program, the output should be:
 </p>
 
-<pre class="example" id="org03df80f">
+<pre class="example" id="org5c49c06">
 Title (should be The Da Vinci Code): The Da Vinci Code
 Rented? (should be false): false
 Rented? (should be true): true
@@ -91,9 +91,9 @@ Rented? (should be false): false
 </div>
 
 
-<div id="outline-container-org1f58afc" class="outline-3">
-<h3 id="org1f58afc">Step 2: Implement Library</h3>
-<div class="outline-text-3" id="text-org1f58afc">
+<div id="outline-container-orga58100a" class="outline-3">
+<h3 id="orga58100a">Step 2: Implement Library</h3>
+<div class="outline-text-3" id="text-orga58100a">
 <p>
 Next, we need to build a class that will represent each library and manage a collection of books. All libraries have the same hours: 9 AM to 5 PM daily. However, they have different addresses and book collections (i.e., arrays of <code>Book</code> objects).
 </p>
@@ -103,9 +103,9 @@ Create a class called <code>Library</code>. Copy and paste the skeleton below. W
 </p>
 </div>
 
-<div id="outline-container-orgeb8077a" class="outline-4">
-<h4 id="orgeb8077a">Notes</h4>
-<div class="outline-text-4" id="text-orgeb8077a">
+<div id="outline-container-org909eb59" class="outline-4">
+<h4 id="org909eb59">Notes</h4>
+<div class="outline-text-4" id="text-org909eb59">
 <ul class="org-ul">
 <li>Some methods will need to be <i>static</i> methods, and some need to be <i>instance</i> methods.</li>
 <li>The library class can be instantiated by importing a collection of books from a catalog file, as shown in the <code>thirdLibrary</code> example in the <code>main</code> method. Sample catalog is provided in Blackboard.</li>
@@ -118,7 +118,7 @@ Create a class called <code>Library</code>. Copy and paste the skeleton below. W
 <p>
 The output when you run this program should be similar to the following:
 </p>
-<pre class="example" id="orgfd59866">
+<pre class="example" id="orgeacd5a4">
 Library hours:
 Libraries are open daily from 9am to 5pm.
 
@@ -137,6 +137,7 @@ Books available in the first library:
 The Da Vinci Code, remaining number of copies: 2
 Le Petit Prince, remaining number of copies: 1
 A Tale of Two Cities, remaining number of copies: 1
+The Lord of the Rings, remaining number of copies: 0
 
 Books available in the second library:
 No book in catalog
@@ -227,9 +228,9 @@ The Lord of the Rings, remaining number of copies: 1
 </div>
 
 
-<div id="outline-container-org7e2337f" class="outline-2">
-<h2 id="org7e2337f">Submission Instructions</h2>
-<div class="outline-text-2" id="text-org7e2337f">
+<div id="outline-container-org3aec756" class="outline-2">
+<h2 id="org3aec756">Submission Instructions</h2>
+<div class="outline-text-2" id="text-org3aec756">
 <p>
 Submit both files (<code>Book.java</code> and <code>Library.java</code>), and <code>README</code> for team work description via Blackboard.
 </p>
@@ -240,9 +241,9 @@ Good luck!
 </div>
 </div>
 
-<div id="outline-container-org5dc056a" class="outline-2">
-<h2 id="org5dc056a">Book.java</h2>
-<div class="outline-text-2" id="text-org5dc056a">
+<div id="outline-container-org55c6c84" class="outline-2">
+<h2 id="org55c6c84">Book.java</h2>
+<div class="outline-text-2" id="text-org55c6c84">
 <div class="org-src-container">
 <pre class="src src-java"><span style="color: #51afef;">public</span> <span style="color: #51afef;">class</span> <span style="color: #ECBE7B;">Book</span> {
    <span style="color: #ECBE7B;">String</span> <span style="color: #dcaeea;">title</span>;
@@ -289,9 +290,9 @@ Good luck!
 </div>
 </div>
 
-<div id="outline-container-org727a6ec" class="outline-2">
-<h2 id="org727a6ec">Library.java</h2>
-<div class="outline-text-2" id="text-org727a6ec">
+<div id="outline-container-org6587376" class="outline-2">
+<h2 id="org6587376">Library.java</h2>
+<div class="outline-text-2" id="text-org6587376">
 <div class="org-src-container">
 <pre class="src src-java"><span style="color: #51afef;">public</span> <span style="color: #51afef;">class</span> <span style="color: #ECBE7B;">Library</span> {
     <span style="color: #5B6268;">// </span><span style="color: #5B6268;">Add the missing implementation to this class</span>
