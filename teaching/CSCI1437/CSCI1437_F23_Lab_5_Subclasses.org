@@ -1,0 +1,20 @@
+#+TITLE: Lab 4 - The MyInteger Class (Week 5)
+#+OPTIONS: num:nil html-postamble:nil
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+# #+SETUPFILE: ~/.emacs.d/org-themes/white_clean/white_clean.theme
+
+*Section 60L: Due Friday, Sep 29th / Section 02L: Due Sunday, Oct 1st*
+
+* Overview
+Java offers a convenient way to incorporate, or wrap, a primitive data type into an object (e.g., wrapping int into the =Integer= class, wrapping double into the =Double= class, and wrapping char into the =Character= class,). By using a wrapper class, you can process primitive data type values as objects. Suppose that you need more functionalities that =Integer= class could offer, and decide to create the =MyInteger= class as described in the UML class diagram below.
+
+* Step 1. Implement the MyInteger class based on the UML class diagram
+#+CAPTION: UML Class Diagram for MyInteger Class
+#+NAME:   fig:UML-Loan
+[[./MyInteger Class UML.png]]
+
+* Step 2. Test your MyInteger class with TestMyIntegerClass.java from Blackboard
+Download the =TestMyIntegerClass.java= file from Blackboard, and test your =MyInteger= class by running the testing program.
+
+* Submission
+Please ONLY submit =MyInteger.java= file with a screenshot of the execution result to Blackboard.
