@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2023-11-14 Tue 15:25 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Lab 10 - Octagon Class (Week 12)</title>
+<meta name="author" content="Zechun Cao" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Lab 10 - Octagon Class (Week 12)</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org76cf7ad">Overview</a></li>
+<li><a href="#orge39b55e">Tasks</a></li>
+<li><a href="#orgff3ff1d">Submission</a></li>
+</ul>
+</div>
+</div>
+<p>
+<b>Section 60L: Due Friday, Nov 17th / Section 02L: Due Sunday, Nov 19th</b>
+</p>
+
+<div id="outline-container-org76cf7ad" class="outline-2">
+<h2 id="org76cf7ad">Overview</h2>
+<div class="outline-text-2" id="text-org76cf7ad">
+<p>
+Write a class named <code>Octagon</code> that extends <code>GeometricObject</code> and implements the <code>Comparable</code> and <code>Cloneable</code> interfaces. Assume that all eight sides of the octagon are of equal length. The area can be computed using the following formula:
+</p>
+
+\begin{equation}                        % arbitrary environments,
+area = (2+4/\sqrt{2})*side*side                              % even tables, figures
+\end{equation}   
+</div>
+</div>
+
+<div id="outline-container-orge39b55e" class="outline-2">
+<h2 id="orge39b55e">Tasks</h2>
+<div class="outline-text-2" id="text-orge39b55e">
+<ol class="org-ol">
+<li>Write a test program that creates an <code>Octagon</code> object with side value 5 and displays its area and perimeter.</li>
+<li>Create a new object using the <code>clone</code> method and compare the two objects using the <code>compareTo</code> method.</li>
+<li>Use <code>java.util.Arrays.sort</code> to sort objects of Octagon based on area ascendingly.</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgff3ff1d" class="outline-2">
+<h2 id="orgff3ff1d">Submission</h2>
+<div class="outline-text-2" id="text-orgff3ff1d">
+<p>
+Include your <code>Lab10</code> class file, and submit this file with a screenshot of the execution result to Blackboard.
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>
